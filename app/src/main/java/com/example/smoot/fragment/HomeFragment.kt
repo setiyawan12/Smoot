@@ -26,6 +26,10 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     lateinit var  vpSlider: ViewPager
     lateinit var rvProduk: RecyclerView
+    lateinit var rvProdukTerlaris: RecyclerView
+    lateinit var rvElektronik: RecyclerView
+
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,6 +51,8 @@ class HomeFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         vpSlider = view.findViewById(R.id.vp_slider)
         rvProduk = view.findViewById(R.id.rv_produk)
+        rvProdukTerlaris=view.findViewById(R.id.rv_produkTerlaris)
+        rvElektronik = view.findViewById(R.id.rv_elektronik)
         val arrSlider = ArrayList<Int>()
         arrSlider.add(R.drawable.slider1)
         arrSlider.add(R.drawable.slider2)
@@ -55,12 +61,61 @@ class HomeFragment : Fragment() {
         vpSlider.adapter=adapterSlider
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        val layoutManager2 = LinearLayoutManager(activity)
+        layoutManager2.orientation = LinearLayoutManager.HORIZONTAL
+        val layoutManager3 = LinearLayoutManager(activity)
+        layoutManager3.orientation = LinearLayoutManager.HORIZONTAL
 
         rvProduk.adapter = AdapterProduk(arrProduk)
         rvProduk.layoutManager = layoutManager
+
+        rvProdukTerlaris.adapter =AdapterProduk(arrProdukTerlaris)
+        rvProdukTerlaris.layoutManager= layoutManager2
+
+        rvElektronik.adapter = AdapterProduk(arrElektronik)
+        rvElektronik.layoutManager = layoutManager3
+
         return view
     }
     val arrProduk: ArrayList<Produk>get(){
+        val arr = ArrayList<Produk>()
+        val p1 = Produk()
+        p1.nama = "Hp core i3"
+        p1.harga = "RP.5.900000"
+        p1.gambar = R.drawable.asus1
+        val p2 = Produk()
+        p2.nama = "Hp core i3"
+        p2.harga = "RP.5.900000"
+        p2.gambar = R.drawable.asus2
+        val p3 = Produk()
+        p3.nama = "Hp core i3"
+        p3.harga = "RP.6.00988888"
+        p3.gambar = R.drawable.asus3
+        arr.add(p1)
+        arr.add(p2)
+        arr.add(p3)
+        return arr
+    }
+    val arrElektronik: ArrayList<Produk>get(){
+        val arr = ArrayList<Produk>()
+        val p1 = Produk()
+        p1.nama = "Hp core i3"
+        p1.harga = "RP.5.900000"
+        p1.gambar = R.drawable.asus1
+        val p2 = Produk()
+        p2.nama = "Hp core i3"
+        p2.harga = "RP.5.900000"
+        p2.gambar = R.drawable.asus2
+        val p3 = Produk()
+        p3.nama = "Hp core i3"
+        p3.harga = "RP.6.00988888"
+        p3.gambar = R.drawable.asus3
+        arr.add(p1)
+        arr.add(p2)
+        arr.add(p3)
+        return arr
+    }
+    val arrProdukTerlaris: ArrayList<Produk>get(){
         val arr = ArrayList<Produk>()
         val p1 = Produk()
         p1.nama = "Hp core i3"
